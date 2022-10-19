@@ -1,0 +1,15 @@
+## backup files
+*~
+*.orig
+
+## objects, artefacts,...
+\#*\#
+*.o
+
+## hide devel folders
+TODO
+README
+
+## a folder for the crednetials to be copied over
+secret
+download
