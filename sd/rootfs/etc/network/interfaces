@@ -1,0 +1,32 @@
+# interfaces(5) file used by ifup(8) and ifdown(8)
+# Include files from /etc/network/interfaces.d:
+source /etc/network/interfaces.d
+
+auto lo
+iface lo inet loopback
+
+#auto eth0
+#allow-hotplug eth0
+#
+## dnsmasq as dhcp own server on eth
+#iface eth0 inet static
+#	address 10.1.10.203
+#	netmask 255.0.0.0
+
+auto wlan0
+allow-hotplug wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+#wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+wireless-power off
+
+## home wifi
+iface home inet dhcp
+
+## demo: dynamic and static setup
+#iface demosetup inet dhcp
+#
+#iface demosetup inet static
+#    address 192.168.1.222
+#    netmask 255.255.255.0
+
