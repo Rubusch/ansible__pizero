@@ -38,11 +38,8 @@ packages:
   - curl
   - bin86
   - patch
-  - doxygen
   - python-is-python2
-  - mercurial
   - kmod
-  - fonts-noto-cjk
   - autoconf
   - libtool
   - libtool-bin
@@ -50,7 +47,6 @@ packages:
   - bsdmainutils
   - i2c-tools
   - device-tree-compiler
-  - graphviz
   - u-boot-tools
   - codespell
   - clang-format
@@ -81,8 +77,6 @@ packages:
   - motion
   - tcpdump
   - nmap
-  - tftp
-  - tftpd-hpa
   - tio
   - xxd
-
+  - lighttpd
