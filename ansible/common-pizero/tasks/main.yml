@@ -147,6 +147,37 @@
     name: apache2
     purge: yes
 
+- name: Install sysvinit and purge systemd
+  become: 'yes'
+  block:
+    - name: Copy inittab
+      ansible.builtin.command: cp /usr/share/sysvinit/inittab /etc/inittab
+
+    - name: Purge systemd-sysv
+      ansible.builtin.apt:
+        name: systemd-sysv
+        purge: yes
+
+    - name: Install sysvinit
+      ansible.builtin.apt:
+        pkg:
+          - sysvinit-core
+          - orphan-sysvinit-scripts
+          - sysvinit-utils
+          - bootlogd
+
+    - name: Update initramfs
+      ansible.builtin.command: update-initramfs -u
+
+    - name: Reboot
+      ansible.builtin.reboot:
+
+    - name: Purge systemd
+      ansible.builtin.apt:
+        name: systemd
+        purge: yes
+        autoremove: yes
+
 - name: Reboot
   become: 'yes'
   ansible.builtin.reboot:

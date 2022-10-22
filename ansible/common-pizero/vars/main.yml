@@ -5,6 +5,7 @@ user:
     password: "xdr5XDR%"
 
 packages:
+  - sysvinit-core
   - vim
   - emacs
   - wget
